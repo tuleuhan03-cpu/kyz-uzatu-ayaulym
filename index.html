@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Аяулым — Қыз ұзату</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
@@ -16,15 +17,21 @@ scroll-behavior:smooth;
 body{
 margin:0;
 font-family:'Cormorant Garamond', serif;
-
-background:
-linear-gradient(rgba(255,255,255,0.45), rgba(255,255,255,0.45)),
-url("bg.jpg") no-repeat center center fixed;
-
-background-size:cover;
 color:#5a4a42;
 overflow-x:hidden;
+
+/* ФОН */
+background:
+linear-gradient(rgba(255,255,255,0.45), rgba(255,255,255,0.45)),
+url("bg.jpg");
+
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
+background-attachment:fixed;
 }
+
+/* УЗОРЫ */
 
 .ornament-top{
 position:fixed;
@@ -60,7 +67,9 @@ color:white;
 overflow:hidden;
 }
 
-.hero photo{
+/* ФОТО */
+
+.hero-photo{
 position:absolute;
 top:0;
 left:0;
@@ -69,6 +78,8 @@ height:100%;
 object-fit:cover;
 z-index:-2;
 }
+
+/* затемнение */
 
 .hero::after{
 content:"";
@@ -98,7 +109,7 @@ opacity:0.95;
 margin-top:14px;
 }
 
-/* sections */
+/* SECTIONS */
 
 .section{
 display:flex;
@@ -134,7 +145,7 @@ font-size:48px;
 margin:0 0 28px 0;
 }
 
-/* calendar */
+/* КАЛЕНДАРЬ */
 
 .month-title{
 font-size:38px;
@@ -149,7 +160,8 @@ border-collapse:collapse;
 font-size:30px;
 }
 
-.calendar td,.calendar th{
+.calendar td,
+.calendar th{
 padding:14px;
 }
 
@@ -160,7 +172,7 @@ border-radius:50%;
 font-weight:bold;
 }
 
-/* timer */
+/* TIMER */
 
 #timer{
 font-size:42px;
@@ -173,7 +185,7 @@ flex-wrap:wrap;
 margin-top:20px;
 }
 
-/* schedule */
+/* ПРОГРАММА */
 
 .schedule-item{
 font-size:30px;
@@ -182,7 +194,7 @@ color:#b48a5a;
 font-weight:600;
 }
 
-/* button */
+/* КНОПКА */
 
 .map-btn{
 display:inline-block;
@@ -196,7 +208,7 @@ font-weight:bold;
 margin-top:28px;
 }
 
-/* hosts */
+/* ИМЕНА */
 
 .hosts-names{
 font-size:40px;
@@ -213,7 +225,7 @@ margin:0 12px;
 opacity:0.6;
 }
 
-/* music */
+/* МУЗЫКА */
 
 .music-btn{
 position:fixed;
@@ -233,7 +245,7 @@ box-shadow:0 5px 20px rgba(0,0,0,0.2);
 z-index:10;
 }
 
-/* petals */
+/* ЛЕПЕСТКИ */
 
 .petal{
 position:fixed;
@@ -259,7 +271,7 @@ transform:translateY(110vh) translateX(-30px) rotate(360deg);
 
 }
 
-/* mobile */
+/* МОБИЛКА */
 
 @media (max-width:768px){
 
@@ -321,43 +333,63 @@ gap:15px;
 
 <body>
 
+<!-- УЗОРЫ -->
+
 <img src="ornament.png" class="ornament-top">
 <img src="ornament.png" class="ornament-bottom">
 
+<!-- HERO -->
+
 <div class="hero">
 
-<video autoplay muted loop playsinline>
-<source src="video.mp4" type="video/mp4">
-</video>
+<!-- ФОТО -->
+<img src="photo.jpg" class="hero-photo">
 
 <div>
+
 <h1>Аяулым</h1>
+
 <p>Қыз ұзату</p>
-<div class="subtitle">16.07.2026</div>
+
+<div class="subtitle">
+16.07.2026
 </div>
 
 </div>
+
+</div>
+
+<!-- ПРИГЛАШЕНИЕ -->
 
 <div class="section">
+
 <div class="box">
 
-<h2>Құрметті ағайын-туыс, құда-жекжат, дос-жаран!</h2>
+<h2>
+Құрметті ағайын-туыс, құда-жекжат, дос-жаран!
+</h2>
 
-Сіздерді аяулы қызымыз <b>Аяулымның</b> ұзату тойына арналған 
+Сіздерді аяулы қызымыз <b>Аяулымның</b> ұзату тойына арналған
 қуанышты дастарханымыздың қадірлі қонағы болуға шақырамыз.
 
 <br><br>
 
-Ақ тілектеріңізді білдіріп, қуанышымызды бірге бөлісіңіздер.
+Ақ тілектеріңізді білдіріп,
+қуанышымызды бірге бөлісіңіздер.
 
 </div>
+
 </div>
+
+<!-- КАЛЕНДАРЬ -->
 
 <div class="section">
 
 <h2>Ұзату күні</h2>
 
-<h3 class="month-title">Шілде 2026</h3>
+<h3 class="month-title">
+Шілде 2026
+</h3>
 
 <div class="calendar">
 
@@ -426,9 +458,10 @@ gap:15px;
 </table>
 
 </div>
+
 </div>
 
-<!-- TIMER -->
+<!-- ТАЙМЕР -->
 
 <div class="section">
 
@@ -468,18 +501,27 @@ gap:15px;
 
 </div>
 
+<!-- ПРОГРАММА -->
+
 <div class="section">
 
 <div class="box">
 
 <h2>Бағдарлама</h2>
 
-<div class="schedule-item">🕒 15:00 – Қонақтардың жиналуы</div>
-<div class="schedule-item">🕓 16:00 – Ұзату тойының басталуы</div>
+<div class="schedule-item">
+🕒 15:00 – Қонақтардың жиналуы
+</div>
 
+<div class="schedule-item">
+🕓 16:00 – Ұзату тойының басталуы
 </div>
 
 </div>
+
+</div>
+
+<!-- АДРЕС -->
 
 <div class="section">
 
@@ -499,6 +541,8 @@ gap:15px;
 
 </div>
 
+<!-- ХОЗЯЕВА -->
+
 <div class="section">
 
 <div class="box">
@@ -513,23 +557,32 @@ gap:15px;
 
 </div>
 
+<!-- КОНЕЦ -->
+
 <div class="section">
 
 <div style="font-size:40px;font-weight:600;">
-Келіңіздер, ұзату тойымыздың қадірлі қонағы болыңыздар!
+
+Келіңіздер,
+ұзату тойымыздың қадірлі қонағы болыңыздар!
+
 </div>
 
 </div>
+
+<!-- МУЗЫКА -->
 
 <audio id="music" loop>
 <source src="music.mp3" type="audio/mpeg">
 </audio>
 
-<div class="music-btn" onclick="toggleMusic()">🎵</div>
+<div class="music-btn" onclick="toggleMusic()">
+🎵
+</div>
 
 <script>
 
-/* animation */
+/* АНИМАЦИЯ */
 
 const sections=document.querySelectorAll(".section");
 
@@ -547,7 +600,7 @@ entry.target.classList.add("visible");
 
 sections.forEach(section=>observer.observe(section));
 
-/* music */
+/* МУЗЫКА */
 
 const music=document.getElementById("music");
 
@@ -575,7 +628,7 @@ music.pause();
 
 }
 
-/* petals */
+/* ЛЕПЕСТКИ */
 
 for(let i=0;i<55;i++){
 
@@ -593,7 +646,7 @@ document.body.appendChild(petal);
 
 }
 
-/* timer */
+/* ТАЙМЕР */
 
 const weddingDate = new Date("2026-07-16T15:00:00").getTime();
 
