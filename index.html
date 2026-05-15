@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Аяулым — Қыз ұзату</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+html{scroll-behavior:smooth;}
+
+body{
+margin:0;
+font-family:'Cormorant Garamond', serif;
+
+background:
+linear-gradient(rgba(255,255,255,0.45), rgba(255,255,255,0.45)),
+url("bg.jpg") no-repeat center center fixed;
+
+background-size:cover;
+color:#5a4a42;
+overflow-x:hidden;
+}
+
+.ornament-top{
+position:fixed;
+top:0;
+left:0;
+width:220px;
+opacity:0.22;
+pointer-events:none;
+z-index:1;
+}
+
+.ornament-bottom{
+position:fixed;
+bottom:0;
+right:0;
+width:220px;
+opacity:0.22;
+transform:rotate(180deg);
+pointer-events:none;
+z-index:1;
+}
+
+/* HERO */
+
+.hero{
+position:relative;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+color:white;
+overflow:hidden;
+}
+
+.hero video{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+object-fit:cover;
+z-index:-2;
+}
+
+.hero::after{
+content:"";
+position:absolute;
+top:0;
+left:0;
+right:0;
+bottom:0;
+background:rgba(0,0,0,0.52);
+z-index:-1;
+}
+
+h1{
+font-family:'Parisienne', cursive;
+font-size:110px;
+margin:0;
+}
+
+.hero p{
+font-size:30px;
+margin:12px 0 0 0;
+}
+
+.hero .subtitle{
+font-size:26px;
+opacity:0.95;
+margin-top:14px;
+}
+
+/* sections */
+
+.section{
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:70px 30px;
+opacity:0;
+transform:translateY(60px);
+transition:1.2s;
+font-size:26px;
+line-height:1.8;
+position:relative;
+z-index:3;
+}
+
+.section.visible{
+opacity:1;
+transform:translateY(0);
+}
+
+.box{
+background:white;
+padding:50px;
+border-radius:35px;
+box-shadow:0 15px 40px rgba(0,0,0,0.07);
+max-width:860px;
+}
+
+h2{
+font-size:48px;
+margin:0 0 28px 0;
+}
+
+/* calendar */
+
+.month-title{
+font-size:38px;
+margin:0 0 18px 0;
+color:#b48a5a;
+}
+
+.calendar table{
+width:100%;
+max-width:640px;
+border-collapse:collapse;
+font-size:30px;
+}
+
+.calendar td,.calendar th{
+padding:14px;
+}
+
+.highlight{
+background:#b48a5a;
+color:white;
+border-radius:50%;
+font-weight:bold;
+}
+
+/* schedule */
+
+.schedule-item{
+font-size:30px;
+margin:18px 0;
+color:#b48a5a;
+font-weight:600;
+}
+
+/* button */
+
+.map-btn{
+display:inline-block;
+background:#2BB673;
+color:white;
+padding:20px 40px;
+border-radius:45px;
+text-decoration:none;
+font-size:24px;
+font-weight:bold;
+margin-top:28px;
+}
+
+/* hosts */
+
+.hosts-names{
+font-size:40px;
+font-family:'Parisienne', cursive;
+color:#b48a5a;
+letter-spacing:1px;
+margin-top:10px;
+}
+
+.hosts-names::before,
+.hosts-names::after{
+content:"✦";
+margin:0 12px;
+opacity:0.6;
+}
+
+/* music */
+
+.music-btn{
+position:fixed;
+bottom:25px;
+right:25px;
+width:75px;
+height:75px;
+background:#b48a5a;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+color:white;
+font-size:32px;
+cursor:pointer;
+box-shadow:0 5px 20px rgba(0,0,0,0.2);
+z-index:10;
+}
+
+/* petals */
+
+.petal{
+position:fixed;
+top:-60px;
+pointer-events:none;
+z-index:4;
+animation:fall linear infinite;
+}
+
+@keyframes fall{
+
+0%{
+transform:translateY(-60px) translateX(0px) rotate(0deg);
+}
+
+50%{
+transform:translateY(50vh) translateX(30px) rotate(180deg);
+}
+
+100%{
+transform:translateY(110vh) translateX(-30px) rotate(360deg);
+}
+
+}
+
+/* mobile */
+
+@media (max-width:768px){
+
+h1{font-size:62px;}
+h2{font-size:34px;}
+
+.hero p{font-size:22px;}
+.hero .subtitle{font-size:18px;}
+
+.section{
+font-size:20px;
+padding:45px 18px;
+}
+
+.calendar table{font-size:22px;}
+
+.month-title{font-size:26px;}
+
+.box{padding:30px;}
+
+.schedule-item{font-size:22px;}
+
+.hosts-names{font-size:30px;}
+
+.ornament-top,
+.ornament-bottom{width:170px;}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<img src="ornament.png" class="ornament-top">
+<img src="ornament.png" class="ornament-bottom">
+
+<div class="hero">
+
+<video autoplay muted loop playsinline>
+<source src="video.mp4" type="video/mp4">
+</video>
+
+<div>
+<h1>Аяулым</h1>
+<p>Қыз ұзату</p>
+<div class="subtitle">16.07.2026</div>
+</div>
+
+</div>
+
+<div class="section">
+<div class="box">
+
+<h2>Құрметті ағайын-туыс, құда-жекжат, дос-жаран!</h2>
+
+Сіздерді аяулы қызымыз <b>Аяулымның</b> ұзату тойына арналған 
+қуанышты дастарханымыздың қадірлі қонағы болуға шақырамыз.  
+
+<br><br>
+
+Ақ тілектеріңізді білдіріп, қуанышымызды бірге бөлісіңіздер.
+
+</div>
+</div>
+
+<div class="section">
+
+<h2>Ұзату күні</h2>
+<h3 class="month-title">Шілде 2026</h3>
+
+<div class="calendar">
+
+<table>
+
+<tr>
+<th>Дс</th>
+<th>Сс</th>
+<th>Ср</th>
+<th>Бс</th>
+<th>Жм</th>
+<th>Сб</th>
+<th>Жс</th>
+</tr>
+
+<tr>
+<td></td>
+<td></td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>4</td>
+<td>5</td>
+</tr>
+
+<tr>
+<td>6</td>
+<td>7</td>
+<td>8</td>
+<td>9</td>
+<td>10</td>
+<td>11</td>
+<td>12</td>
+</tr>
+
+<tr>
+<td>13</td>
+<td>14</td>
+<td>15</td>
+<td class="highlight">16</td>
+<td>17</td>
+<td>18</td>
+<td>19</td>
+</tr>
+
+<tr>
+<td>20</td>
+<td>21</td>
+<td>22</td>
+<td>23</td>
+<td>24</td>
+<td>25</td>
+<td>26</td>
+</tr>
+
+<tr>
+<td>27</td>
+<td>28</td>
+<td>29</td>
+<td>30</td>
+<td>31</td>
+<td></td>
+<td></td>
+</tr>
+
+</table>
+
+</div>
+</div>
+
+<div class="section">
+
+<div class="box">
+<h2>Бағдарлама</h2>
+
+<div class="schedule-item">🕒 15:00 – Қонақтардың жиналуы</div>
+<div class="schedule-item">🕓 16:00 – Ұзату тойының басталуы</div>
+
+</div>
+
+</div>
+
+<div class="section">
+
+<div class="box">
+
+<h2>Мекенжай</h2>
+
+<b>El Plaza мейрамханасы</b>
+
+<br><br>
+
+<a href="https://2gis.kz/astana/geo/70000001035107611" target="_blank" class="map-btn">
+📍 2ГИС арқылы ашу
+</a>
+
+</div>
+
+<div class="section">
+
+  <div class="box">
+    <h2>Той иесі</h2>
+
+    <div class="hosts-names">Айдарбек - Гульмира</div>
+    
+
+  </div>
+
+</div>
+
+</div>
+
+<div class="section">
+
+<div style="font-size:40px;font-weight:600;">
+Келіңіздер, ұзату тойымыздың қадірлі қонағы болыңыздар!
+</div>
+
+</div>
+
+<audio id="music" loop>
+<source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<div class="music-btn" onclick="toggleMusic()">🎵</div>
+
+<script>
+
+const sections=document.querySelectorAll(".section");
+
+const observer=new IntersectionObserver(entries=>{
+
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.classList.add("visible");
+}
+});
+
+},{threshold:0.25});
+
+sections.forEach(section=>observer.observe(section));
+
+const music=document.getElementById("music");
+
+let started=false;
+
+document.addEventListener("click",function(){
+
+if(!started){
+
+music.play().catch(()=>{});
+started=true;
+
+}
+
+});
+
+function toggleMusic(){
+
+if(music.paused){
+music.play().catch(()=>{});
+}
+else{
+music.pause();
+}
+
+}
+
+for(let i=0;i<55;i++){
+
+const petal=document.createElement("img");
+
+petal.src="petal.png";
+petal.className="petal";
+
+petal.style.left=Math.random()*100+"vw";
+petal.style.width=(18+Math.random()*22)+"px";
+petal.style.animationDuration=(6+Math.random()*8)+"s";
+petal.style.opacity=(0.55+Math.random()*0.4);
+
+document.body.appendChild(petal);
+
+}
+
+</script>
+
+</body>
+</html>
